@@ -16,6 +16,23 @@ module.exports = {
       text
     })
 
+    // console.log(req.connectedUsers)
+    // console.log(req.connectedUsers[_idUserOrigin])
+    // console.log(req.connectedUsers[_idUserDestiny])
+
+    // console.log(_idUserOrigin, _idUserDestiny)
+
+    // const loggedSocket = req.connectedUsers[_idUserOrigin]
+    const targetSocket = req.connectedUsers[_idUserDestiny]
+    // console.log(loggedSocket)
+
+    // if(loggedSocket){
+    //     req.io.to(loggedSocket).emit('match', result)
+    // }
+    if(targetSocket){
+        req.io.to(targetSocket).emit('match', result)
+    }
+
     return res.json(result)
   }
 }

@@ -14,7 +14,7 @@ routes.get('/', (req, res) => {
 routes.get('/users', UsersController.index)
 routes.post('/users', UsersController.store)
 
-routes.get('/locationuser', LocationUserController.index)
+routes.get('/locationuser/:username', LocationUserController.index)
 
 routes.get('/chats', ChatController.index)
 routes.post('/chats', ChatController.store)

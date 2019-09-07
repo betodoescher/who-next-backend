@@ -4,18 +4,26 @@ const Users = require('../models/Users')
 module.exports = {
 
   async index (req, res) {
-    let username = 'gabrieldarezzo'
-    if (req.username == 'gabrieldarezzo') {
-      username = 'betodoescher'
+
+    const { username } = req.params
+
+    let usertemp = username
+
+    // será retirado
+    if(usertemp == 'betodoescher'){
+      usertemp = 'gabrieldarezzo'
+    } else {
+      usertemp = 'betodoescher'
     }
 
-    const userExists = await Users.findOne({ user: username })
+    const userExists = await Users.findOne({ user: usertemp })
 
     if (userExists) {
       return res.json(userExists)
     }
 
-    const response = await axios.get(`https://api.github.com/users/${username}`)
+   
+    const response = await axios.get(`https://api.github.com/users/${usertemp}`)
 
     const { name, bio, avatar_url: avatar } = response.data
 
