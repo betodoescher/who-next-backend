@@ -3,6 +3,14 @@ const Users = require('../models/Users')
 
 module.exports = {
 
+  async usersById (req, res){
+
+    const { id } = req.params
+
+    const users = await Users.findById(id)
+    return res.json(users)
+  },
+
   async index (req, res) {
     if (!req.headers.user) {
       // Show all unsers if not set

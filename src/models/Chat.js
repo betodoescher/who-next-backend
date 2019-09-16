@@ -12,7 +12,11 @@ const ChatSchema = new Schema({
   text: {
     type: String,
     required: true
-  }
+  },
+  Users: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Users'
+  }]
 }, {
   timestamps: true
 })

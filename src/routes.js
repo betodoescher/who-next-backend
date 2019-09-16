@@ -12,14 +12,14 @@ routes.get('/', (req, res) => {
 })
 
 routes.get('/users', UsersController.index)
+routes.get('/usersbyid/:id', UsersController.usersById)
 routes.post('/users', UsersController.store)
 
 routes.get('/locationuser/:username', LocationUserController.index)
+routes.post('/locationuser', LocationUserController.store)
 
-routes.get('/chats', ChatController.index)
+routes.get('/chatsusers/:id', ChatController.chatUsers)
+routes.get('/chats/origem/:idOrigem/destino/:idDestino', ChatController.index)
 routes.post('/chats', ChatController.store)
-
-// routes.post('/devs/:devId/likes', LikeController.store)
-// routes.post('/devs/:devId/dislikes', DislikeController.store)
 
 module.exports = routes

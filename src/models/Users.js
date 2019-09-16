@@ -13,11 +13,7 @@ const UsersSchema = new Schema({
   avatar: {
     type: String,
     required: true
-  },
-  chats: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Chat'
-  }]
+  }
 }, {
   timestamps: true
 })
